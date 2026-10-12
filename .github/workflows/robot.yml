@@ -1,0 +1,23 @@
+
+name: Prueba segura del Robot 11
+
+on:
+  workflow_dispatch:
+
+jobs:
+  prueba:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Confirmar que el robot está en el repositorio
+        run: |
+          echo "Robot 11 encontrado:"
+          find . -maxdepth 2 -name "*.ipynb" -print
+          echo "Prueba inicial terminada."
